@@ -15,9 +15,9 @@
         </div>
       </div>
     </div>
-    <div v-if="todos.length > 0" class="col-md-4">
+<!--    <div v-if="todos.length > 0" class="col-md-4">-->
 <!--      <Card @delete-items="deleteItems" :todos=todos></Card>-->
-    </div>
+<!--    </div>-->
   </div>
 </template>
 <script>

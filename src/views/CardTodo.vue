@@ -17,11 +17,34 @@
 
 <script>
 export default {
-  name: "CardTodo",
-  props: {
-    todos: {
-      type: Array,
-      required: true,
+  data(){
+    return{
+      todos:[],
+      title:'',
+      content:'',
+      isFinish: false
+    }
+  },
+  // name: "CardTodo",
+  // props: {
+  //   todos: {
+  //     type: Array,
+  //     required: true,
+  //   }
+  // },
+  mounted() {
+    this.fetchTodo()
+  },
+  methods: {
+    async fetchTodo() {
+      let res = await fetch('https://jsonplaceholder.typicode.com/todos')
+      let data = await res.json()
+
+      data.forEach(item => this.todos.unshift({
+        'title': item.title,
+        'isFinish': item.completed,
+      }))
+
     }
   }
 }
